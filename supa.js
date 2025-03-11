@@ -7,12 +7,12 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 async function getBooks() {
-  let { data: fav_books, error } = await supabase
-    .from('fav_books')
+  let { data: favbooks, error } = await supabase
+    .from('favbooks')
     .select('*')
-  let bookList = document.getElementById('fav_books');
+  let bookList = document.getElementById('favbooks');
   
-  for (let book of fav_books) {
+  for (let book of favbooks) {
      bookList.innerHTML += `<tr><td>${book.title}</td><td>${book.created_at}</td></tr>`;
    }
 }
